@@ -149,6 +149,16 @@ class SFTDataCollector:
             json.dump(combined_data, f, ensure_ascii=False, indent=2)
         print(f"Saved combined data to {combined_file}")
     
+    def extend_from(self, other_collector: 'SFTDataCollector') -> None:
+        """
+        Extend data from another collector.
+        
+        Args:
+            other_collector: Another SFTDataCollector instance to merge data from
+        """
+        self.tool_calling_data.extend(other_collector.tool_calling_data)
+        self.rag_data.extend(other_collector.rag_data)
+    
     def load_sample_data(self) -> None:
         """Load sample tool calling and RAG data for demonstration."""
         # Sample Tool Calling Examples

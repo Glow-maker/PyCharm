@@ -3,7 +3,16 @@
 """
 示例：如何使用 SFT 数据收集器
 Example: How to use the SFT Data Collector
+
+Note: This script should be run from the scripts directory where
+sft_data_collector.py is located.
 """
+
+import sys
+import os
+
+# Ensure sft_data_collector is importable from the same directory
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from sft_data_collector import SFTDataCollector
 
@@ -197,8 +206,9 @@ def main():
     # 合并数据
     print("3. 合并所有数据...")
     combined_collector = SFTDataCollector(output_dir="./my_custom_sft_data")
-    combined_collector.tool_calling_data = tool_collector.tool_calling_data
-    combined_collector.rag_data = rag_collector.rag_data
+    # Use the extend_from method for safer data merging
+    combined_collector.extend_from(tool_collector)
+    combined_collector.extend_from(rag_collector)
     
     # 保存数据
     print("4. 保存数据到文件...")

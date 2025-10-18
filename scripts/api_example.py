@@ -6,10 +6,40 @@ Simple Flask API for SFT Data Collection
 
 This script demonstrates how to integrate the SFT data collector
 with a REST API for real-time data collection.
+
+USAGE INSTRUCTIONS / 使用说明:
+================================
+This file contains example code showing how to build a Flask API for SFT data collection.
+The Flask code is commented out by default because it requires Flask to be installed.
+
+To use this example:
+1. Install Flask: pip install flask
+2. Uncomment the Flask code below (lines starting with # in the Flask section)
+3. Run: python api_example.py
+
+To see example API usage without Flask, simply run:
+    python api_example.py
+
+该文件包含示例代码，展示如何为 SFT 数据收集构建 Flask API。
+Flask 代码默认被注释，因为它需要安装 Flask。
+
+要使用此示例：
+1. 安装 Flask：pip install flask
+2. 取消下面的 Flask 代码注释（Flask 部分以 # 开头的行）
+3. 运行：python api_example.py
+
+要查看不使用 Flask 的 API 示例，只需运行：
+    python api_example.py
 """
 
 import json
+import sys
+import os
 from datetime import datetime
+
+# Ensure sft_data_collector is importable from the same directory
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
 from sft_data_collector import SFTDataCollector
 
 # Note: This is a demonstration script showing how to integrate with Flask
