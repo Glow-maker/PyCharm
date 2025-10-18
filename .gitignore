@@ -1,6 +1,7 @@
 scripts/sft_data/
 scripts/my_custom_sft_data/
 scripts/api_sft_data/
+scripts/demo_output/
 scripts/numpy/
 scripts/__pycache__/
 __pycache__/
